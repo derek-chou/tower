@@ -346,12 +346,8 @@ func _cycle_speed() -> void:
 # ---------------------------------------------------------------- UI
 
 func _build_ui() -> void:
-	var font := SystemFont.new()
-	font.font_names = PackedStringArray([
-		"PingFang TC", "Heiti TC", "Microsoft JhengHei", "Noto Sans CJK TC", "sans-serif",
-	])
 	var theme := Theme.new()
-	theme.default_font = font
+	theme.default_font = Effect.FONT
 	theme.default_font_size = 16
 
 	var layer := CanvasLayer.new()

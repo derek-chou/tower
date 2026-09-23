@@ -3,6 +3,9 @@ extends Node2D
 
 ## 短暫的視覺特效：爆炸圓環或飄浮文字。
 
+## 內嵌的中文子集字型；新增中文字時需執行 tools/subset_font.sh 重新產生。
+const FONT := preload("res://fonts/NotoSansTC-subset.ttf")
+
 var kind := "ring"
 var color := Color.WHITE
 var radius := 30.0
@@ -46,5 +49,5 @@ func _draw() -> void:
 		draw_circle(Vector2.ZERO, r, Color(color, 0.35 * (1.0 - k)))
 		draw_arc(Vector2.ZERO, r, 0, TAU, 32, Color(color, 1.0 - k), 2.0)
 	else:
-		draw_string(ThemeDB.fallback_font, Vector2(-12, 0), text,
+		draw_string(FONT, Vector2(-12, 0), text,
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color(color, 1.0 - k))
